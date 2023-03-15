@@ -46,7 +46,7 @@ func getPlainListener(_ context.Context, network string, addr string, _ net.List
 		return nil, err
 	}
 
-	return s.Listen(network, ":"+port)
+	return s.Listen("tcp", ":"+port)
 }
 
 func getTLSListener(_ context.Context, network string, addr string, _ net.ListenConfig) (any, error) {
@@ -60,7 +60,7 @@ func getTLSListener(_ context.Context, network string, addr string, _ net.Listen
 		return nil, err
 	}
 
-	ln, err := s.Listen(network, ":"+port)
+	ln, err := s.Listen("tcp", ":"+port)
 	if err != nil {
 		return nil, err
 	}
